@@ -1,2 +1,2 @@
 # Frontend-Integration
-Frontend Integration in HTML, CSS &amp; JavaScript 
+Frontend Integration into HTML of Figma and AdobeXD design files
