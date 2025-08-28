@@ -6,6 +6,17 @@
     --dark: #03212B;
 }
 
+.subclass {
+    font-size: 30px;
+}
+
+span {
+    font-size: 15px;
+    color: grey;
+    font-style: italic;
+}
+
+
 .back-to-top {
     position: fixed;
     display: none;

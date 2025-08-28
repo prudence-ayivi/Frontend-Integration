@@ -1,0 +1,34 @@
+# Active la réécriture d'URL
+RewriteEngine On
+
+# Assure que le .htaccess s'exécute depuis la racine du site
+RewriteBase /
+
+# --------------------------------------------
+# Redirige index.html vers la racine du site
+# Exemple : votresite.com/index.html → votresite.com/
+# --------------------------------------------
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# --------------------------------------------
+# Redirige toutes les URLs avec .html vers leur version sans .html
+# Exemple : votresite.com/page.html → votresite.com/page
+# --------------------------------------------
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s(.*)\.html\s [NC]
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# --------------------------------------------
+# Permet l'accès aux fichiers .html sans taper l'extension
+# Exemple : votresite.com/page → cherche automatiquement page.html
+# --------------------------------------------
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# --------------------------------------------
+# Empêche d'appliquer les règles aux fichiers et répertoires existants
+# Cela protège les ressources comme CSS, JS, images, etc.
+# --------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
