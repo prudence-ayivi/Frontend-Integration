@@ -2408,9 +2408,15 @@ section,
 }
 
 .blog-details .post-img {
-  margin: -30px -30px 20px -30px;
+  margin: -30px -30px 20px -5px;
   overflow: hidden;
 }
+
+@media (max-width: 900px) {
+  .blog-details .post-img {
+    margin: -30px -30px 20px -30px;
+  }
+} 
 
 .blog-details .title {
   color: var(--heading-color);
